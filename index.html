@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт Услуг</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Наши Услуги</h1>
+        <button id="authButton">Вход / Регистрация</button>
+    </header>
+
+    <section id="filters">
+        <label for="category">Фильтр по категории:</label>
+        <select id="category">
+            <option value="all">Все</option>
+            <option value="category1">Категория 1</option>
+            <option value="category2">Категория 2</option>
+        </select>
+
+        <input type="text" id="search" placeholder="Поиск услуг...">
+        <label for="priceRange">Цена:</label>
+        <input type="number" id="minPrice" placeholder="Минимум" min="0">
+        <input type="number" id="maxPrice" placeholder="Максимум" min="0">
+        <button id="filterButton">Фильтровать</button>
+    </section>
+
+    <ul class="services-list" id="servicesList"></ul>
+
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Заказ Услуги</h2>
+            <form id="orderForm">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="email" id="email" placeholder="Ваш email" required>
+                <input type="hidden" id="serviceName">
+                <input type="hidden" id="servicePrice">
+                <button type="submit">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <h3>Отзывы</h3>
+        <form id="reviewForm">
+            <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
+            <button type="submit">Отправить отзыв</button>
+        </form>
+        <ul id="reviewList"></ul>
+    </div>
+
+    <div class="admin-panel">
+        <h2>Административная Панель</h2>
+        <form id="addServiceForm">
+            <input type="text" id="newServiceName" placeholder="Название услуги" required>
+            <input type="text" id="newServiceDescription" placeholder="Описание услуги" required>
+            <input type="number" id="newServicePrice" placeholder="Цена услуги" required>
+            <button type="submit">Добавить Услугу</button>
+        </form>
+
+        <!-- Форма добавления новых администраторов (только для главного администратора) -->
+        <form id="addAdminForm" style="display: none;">
+            <input type="text" id="newAdminName" placeholder="Имя нового администратора" required>
+            <button type="submit">Добавить Администратора</button>
+        </form>
+
+        <!-- Дополнительные функции -->
+        <h3>Управление услугами и заказами</h3>
+        <button id="viewOrdersButton">Просмотр всех заказов</button>
+        <button id="viewReviewsButton">Просмотр всех отзывов</button>
+        <button id="addDiscountButton">Добавить скидку</button>
+        <button id="viewStatsButton">Просмотр статистики</button>
+        <button id="sendNotificationButton">Отправить уведомление</button>
+    </div>
+    <!-- Панель администратора -->
+    <div class="admin-panel">
+        <h2>Панель администратора</h2>
+        <button id="viewOrdersButton">Просмотр заказов</button>
+        <button id="viewReviewsButton">Просмотр отзывов</button>
+        <button id="addDiscountButton">Добавить скидку</button>
+        <button id="viewStatsButton">Просмотр статистики</button>
+        <button id="sendNotificationButton">Отправить уведомление</button>
+        <button id="analyticsButton">Аналитика</button>
+        <button id="manageCategoriesButton">Управление категориями</button>
+
+        <h3>Добавление услуги</h3>
+        <form id="addServiceForm">
+            <input type="text" id="newServiceName" placeholder="Название услуги" required>
+            <input type="text" id="newServiceDescription" placeholder="Описание услуги" required>
+            <input type="number" id="newServicePrice" placeholder="Цена" required>
+            <button type="submit">Добавить услугу</button>
+        </form>
+
+        <h3>Добавление администратора</h3>
+        <form id="addAdminForm">
+            <input type="text" id="newAdminName" placeholder="Имя администратора" required>
+            <button type="submit">Добавить администратора</button>
+        </form>
+
+        <h3>Дополнительные функции</h3>
+        <button id="activeOrdersButton">Активные заказы</button>
+        <button id="searchOrderButton">Поиск заказа</button>
+        <button id="updateOrderStatusButton">Обновить статус заказа</button>
+        <button id="deleteServiceButton">Удалить услугу</button>
+        <button id="editServicePriceButton">Изменить цену услуги</button>
+        <button id="filterServicesButton">Фильтровать услуги</button>
+        <button id="blockUserButton">Заблокировать пользователя</button>
+        <button id="assignLabelButton">Присвоить метку</button>
+        <button id="userRolesButton">Просмотр ролей пользователей</button>
+        <button id="exportDataButton">Экспорт данных</button>
+    </div>
+
+    <button id="authButton">Войти как администратор</button>
+
+    <footer>
+        <p>&copy; 2024 Сайт Услуг. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление Услугами</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Панель Управления Услугами</h1>
+    </header>
+
+    <main>
+        <section id="admin-panel">
+            <h2>Административная Панель</h2>
+            <form id="addServiceForm">
+                <input type="text" id="serviceName" placeholder="Название услуги" required>
+                <input type="text" id="serviceDescription" placeholder="Описание услуги" required>
+                <input type="number" id="servicePrice" placeholder="Цена услуги" required>
+                <button type="submit">Добавить Услугу</button>
+            </form>
+
+            <h3>Список Услуг</h3>
+            <ul id="serviceList"></ul>
+        </section>
+
+        <section id="moderation-panel">
+            <h2>Модерация Заказов</h2>
+            <h3>Список Заказов</h3>
+            <ul id="orderList">
+                <!-- Здесь будут выводиться заказы -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Панель Управления. Все права защищены.</p>
+    </footer>
+
+    <script src="scri.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+services-website/
+│
+├── index.html        // Главная страница
+├── services.html     // Страница с услугами
+├── contact.html       // Контактная информация
+├── styles.css        // Файл стилей
+└── script.js         // Файл скриптов
