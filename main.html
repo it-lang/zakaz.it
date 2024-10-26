@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт Услуг</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Наши Услуги</h1>
+        <button id="authButton">Вход / Регистрация</button>
+    </header>
+
+    <section id="filters">
+        <label for="category">Фильтр по категории:</label>
+        <select id="category">
+            <option value="all">Все</option>
+            <option value="category1">Категория 1</option>
+            <option value="category2">Категория 2</option>
+        </select>
+    </section>
+
+    <ul class="services-list">
+        <li>
+            Услуга 1 
+            <button class="order-button" data-service="Услуга 1">Заказать</button>
+        </li>
+        <li>
+            Услуга 2 
+            <button class="order-button" data-service="Услуга 2">Заказать</button>
+        </li>
+        <li>
+            Услуга 3 
+            <button class="order-button" data-service="Услуга 3">Заказать</button>
+        </li>
+    </ul>
+
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Заказ Услуги</h2>
+            <form id="orderForm">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="email" id="email" placeholder="Ваш email" required>
+                <input type="hidden" id="serviceName">
+                <button type="submit">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <h3>Отзывы</h3>
+        <form id="reviewForm">
+            <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
+            <button type="submit">Отправить отзыв</button>
+        </form>
+        <ul id="reviewList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
