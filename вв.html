@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключите ваш файл стилей, если он есть -->
+</head>
+<style>
+    /* Основные стили для страницы */
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        /* Использование шрифта Arial */
+        background-color: #f9f9f9;
+        /* Светло-серый фон для страницы */
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        /* Увеличенный межстрочный интервал для удобства чтения */
+    }
+    /* Стили для заголовка */
+    
+    header {
+        background: linear-gradient(90deg, #007BFF, #0056b3);
+        /* Градиентный фон заголовка */
+        color: white;
+        /* Белый цвет текста */
+        padding: 30px;
+        /* Увеличенные отступы */
+        text-align: center;
+        /* Центрирование текста */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        /* Тень для заголовка */
+    }
+    
+    h1 {
+        margin: 0;
+        /* Убираем отступы */
+        font-size: 2.5rem;
+        /* Увеличенный размер шрифта */
+    }
+    /* Основной контент */
+    
+    main {
+        padding: 20px;
+        /* Отступы внутри основного содержимого */
+    }
+    /* Стили для таблицы */
+    
+    table {
+        width: 100%;
+        /* Ширина таблицы на всю ширину контейнера */
+        border-collapse: collapse;
+        /* Убираем двойные границы */
+        margin-top: 20px;
+        /* Отступ сверху */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        /* Тень для таблицы */
+        background-color: #ffffff;
+        /* Белый фон таблицы */
+        border-radius: 8px;
+        /* Закругленные углы таблицы */
+    }
+    /* Стили для ячеек таблицы */
+    
+    th,
+    td {
+        border: 1px solid #007BFF;
+        /* Синий цвет границ */
+        text-align: left;
+        /* Выравнивание текста в ячейках */
+        padding: 15px;
+        /* Увеличенные отступы внутри ячеек */
+    }
+    /* Заголовки таблицы */
+    
+    th {
+        background-color: #007BFF;
+        /* Цвет фона для заголовков */
+        color: white;
+        /* Белый цвет текста для заголовков */
+        text-transform: uppercase;
+        /* Заглавные буквы для заголовков */
+        letter-spacing: 0.1em;
+        /* Пробелы между буквами */
+    }
+    /* Четные строки таблицы */
+    
+    tr:nth-child(even) {
+        background-color: #f2f4f6;
+        /* Светло-серый цвет фона для четных строк */
+    }
+    /* Эффект при наведении на строки */
+    
+    tr:hover {
+        background-color: #e6f7ff;
+        /* Светло-голубой цвет фона при наведении на строку */
+        transition: background-color 0.3s;
+        /* Плавный переход цвета */
+    }
+    /* Стили для подвала */
+    
+    footer {
+        text-align: center;
+        /* Центрирование текста */
+        padding: 15px;
+        /* Увеличенные отступы */
+        background: linear-gradient(90deg, #007BFF, #0056b3);
+        /* Градиентный фон подвала */
+        color: white;
+        /* Белый цвет текста */
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        /* Тень для подвала */
+    }
+    /* Кнопка отправки */
+    
+    button {
+        background-color: #007BFF;
+        /* Синий цвет кнопки */
+        color: white;
+        /* Цвет текста */
+        border: none;
+        /* Убираем границы */
+        padding: 10px 20px;
+        /* Отступы */
+        text-align: center;
+        /* Центрирование текста */
+        text-decoration: none;
+        /* Убираем подчеркивание */
+        display: inline-block;
+        /* Отображение как блок */
+        font-size: 16px;
+        /* Размер шрифта */
+        margin: 4px 2px;
+        /* Отступы вокруг кнопки */
+        cursor: pointer;
+        /* Курсор в виде руки при наведении */
+        border-radius: 5px;
+        /* Закругленные углы */
+        transition: background-color 0.3s, transform 0.3s;
+        /* Плавный переход цвета и трансформации */
+    }
+    /* Эффект при наведении на кнопку */
+    
+    button:hover {
+        background-color: #0056b3;
+        /* Темнее при наведении */
+        transform: translateY(-2px);
+        /* Поднимает кнопку при наведении */
+    }
+    /* Стили для формы обратной связи (если используется) */
+    
+    form {
+        background-color: #ffffff;
+        /* Белый фон для формы */
+        padding: 20px;
+        /* Отступы внутри формы */
+        border-radius: 8px;
+        /* Закругленные углы формы */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Тень для формы */
+    }
+    /* Стили для полей ввода */
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        /* Ширина полей ввода на всю ширину */
+        padding: 10px;
+        /* Отступы внутри полей ввода */
+        margin: 10px 0;
+        /* Отступы сверху и снизу */
+        border: 1px solid #007BFF;
+        /* Синий цвет границ */
+        border-radius: 5px;
+        /* Закругленные углы */
+        box-sizing: border-box;
+        /* Учитывает границы и отступы при расчете ширины */
+        transition: border-color 0.3s;
+        /* Плавный переход цвета границ */
+    }
+    /* Эффект при фокусировке на полях ввода */
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: #0056b3;
+        /* Темнее при фокусировке */
+        outline: none;
+        /* Убираем контур при фокусировке */
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Список заказов</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>статус</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Создание чат-бота TG</td>
+                    <td>Активный</td>
+                    <td>100р</td>
+                </tr>
+                <tr>
+                    <td>Создание чат-бота Vk</td>
+                    <td>Активный</td>
+                    <td>100р</td>
+                </tr>
+                <tr>
+                    <td>Создание сайта</td>
+                    <td>Активный</td>
+                    <td>150р</td>
+                </tr>
+                <tr>
+                    <td>Создание Python/JavaScript функции</td>
+                    <td>Активный</td>
+                    <td>210</td>
+                </tr>
+
+                <!-- Вы можете добавить больше строк по мере необходимости -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Форум Услуг. Все права защищены.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Обработчик события для кнопки
+        document.getElementById("homeButton").addEventListener("click", function() {
+            window.location.href = "index.html"; // Замените 'index.html' на ваш путь к главной странице
+        });
+    });
+</script>
+<button id="homeButton">На главную страницу</button>
+
+</html>

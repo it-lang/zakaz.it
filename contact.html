@@ -4,32 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Контакты</title>
 </head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    header {
+        background-color: #4A90E2;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    main {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        margin-top: 10px;
+        display: block;
+    }
+    
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+    
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #4A90E2;
+    }
+    
+    button {
+        background-color: #4A90E2;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    button:hover {
+        background-color: #357ABD;
+    }
+    
+    .notification {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 5px;
+        display: none;
+    }
+    
+    .notification.hidden {
+        display: none;
+    }
+    
+    footer {
+        background-color: #4A90E2;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
 
 <body>
     <header>
-        <h1>Контакты</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="contact.html">Контакты</a></li>
-            </ul>
-        </nav>
+        <h1>Обратная связь</h1>
     </header>
-
     <main>
-        <h2>Связаться с нами</h2>
-        <p>Электронная почта: <a href="mailto:example@example.com">example@example.com</a></p>
-        <p>Телефон: <a href="tel:+79999999999">+7 (999) 999-99-99</a></p>
-    </main>
+        <form id="contact-form" action="contact.php" method="POST">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" required>
 
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Отправить</button>
+        </form>
+        <div id="notification" class="notification hidden"></div>
+    </main>
     <footer>
-        <p>&copy; 2024 Услуги</p>
+        <p>&copy; 2024 Форум Услуг. Все права защищены.</p>
     </footer>
-    <script src="script.js" type="module"></script>
+    <script src="script.js" defer></script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const contactForm = document.getElementById('contact-form');
+        const notification = document.getElementById('notification');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            const name = document.getElementById('name').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !message) {
+                showNotification("Пожалуйста, заполните все поля.", "error");
+                return;
+            }
+
+            // Отправка данных формы через AJAX (пример)
+            fetch('contact.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        'name': name,
+                        'message': message
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Ошибка сети');
+                    return response.json();
+                })
+                .then(data => {
+                    showNotification("Ваше сообщение отправлено успешно!", "success");
+                    contactForm.reset(); // Сброс формы
+                })
+                .catch(error => {
+                    console.error('Ошибка отправки:', error);
+                    showNotification("Произошла ошибка. Попробуйте еще раз.", "error");
+                });
+        });
+
+        function showNotification(message, type) {
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000); // Скрыть уведомление через 5 секунд
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Обработчик события для кнопки
+        document.getElementById("homeButton").addEventListener("click", function() {
+            window.location.href = "index.html"; // Замените 'index.html' на ваш путь к главной странице
+        });
+    });
+</script>
 
 </html>

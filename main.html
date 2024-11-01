@@ -1,63 +1,885 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт Услуг</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Данные о классах</title>
+    <style>
+        /* Основные стили для страницы */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            /* Светлый фон */
+            margin: 0;
+            padding: 20px;
+            color: #495057;
+            /* Цвет текста */
+        }
+        
+        h1 {
+            text-align: center;
+            color: #343a40;
+            /* Цвет заголовка */
+            margin-bottom: 20px;
+            /* Отступ снизу */
+        }
+        
+        h2 {
+            color: #007bff;
+            /* Синий цвет для подзаголовка */
+            margin-top: 40px;
+            /* Отступ сверху для подзаголовка */
+            text-align: center;
+            /* Центрируем подзаголовок */
+        }
+        /* Стили для таблицы */
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            /* Отступ сверху */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* Тень для таблицы */
+            border-radius: 8px;
+            /* Скругление углов */
+            overflow: hidden;
+            /* Скрыть лишние края */
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            /* Внутренние отступы */
+            text-align: center;
+            /* Выравнивание текста по центру */
+            border: 1px solid #dee2e6;
+            /* Рамка вокруг ячеек */
+        }
+        
+        th {
+            background-color: #007bff;
+            /* Синий цвет заголовка */
+            color: white;
+            /* Белый текст */
+            font-size: 16px;
+            /* Размер шрифта для заголовка */
+        }
+        
+        td {
+            background-color: #ffffff;
+            /* Белый фон для ячеек */
+            font-size: 14px;
+            /* Размер шрифта для ячеек */
+            transition: background-color 0.3s;
+            /* Плавный переход цвета */
+        }
+        
+        tr:nth-child(even) td {
+            background-color: #f8f9fa;
+            /* Светло-серый для четных строк */
+        }
+        
+        tr:hover td {
+            background-color: #e2e6ea;
+            /* Цвет при наведении */
+        }
+        /* Адаптивность для мобильных устройств */
+        
+        @media (max-width: 600px) {
+            h1,
+            h2 {
+                font-size: 24px;
+                /* Уменьшаем размер заголовка */
+            }
+            table {
+                font-size: 12px;
+                /* Уменьшаем размер шрифта в таблице */
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Наши Услуги</h1>
-        <button id="authButton">Вход / Регистрация</button>
-    </header>
 
-    <section id="filters">
-        <label for="category">Фильтр по категории:</label>
-        <select id="category">
-            <option value="all">Все</option>
-            <option value="category1">Категория 1</option>
-            <option value="category2">Категория 2</option>
-        </select>
-    </section>
+    <h1>Данные о классах</h1>
 
-    <ul class="services-list">
-        <li>
-            Услуга 1 
-            <button class="order-button" data-service="Услуга 1">Заказать</button>
-        </li>
-        <li>
-            Услуга 2 
-            <button class="order-button" data-service="Услуга 2">Заказать</button>
-        </li>
-        <li>
-            Услуга 3 
-            <button class="order-button" data-service="Услуга 3">Заказать</button>
-        </li>
-    </ul>
+    <!-- Таблица за 2022/2023 учебный год -->
+    <h2>Данные за 2022/2023 учебный год</h2>
+    <table id="data-table-2022-2023">
+        <thead>
+            <tr>
+                <th>Класс</th>
+                <th>Всего</th>
+                <th>Пропуски</th>
+                <th>Активные</th>
+                <th>Тройки</th>
+                <th>Не сданы</th>
+                <th>Качество</th>
+            </tr>
+        </thead>
+        <tbody id="table-body-2022-2023">
+            <!-- Данные будут динамически добавляться сюда -->
+        </tbody>
+    </table>
 
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Заказ Услуги</h2>
-            <form id="orderForm">
-                <input type="text" id="name" placeholder="Ваше имя" required>
-                <input type="email" id="email" placeholder="Ваш email" required>
-                <input type="hidden" id="serviceName">
-                <button type="submit">Подтвердить заказ</button>
-            </form>
-        </div>
-    </div>
+    <!-- Таблица за 2023/2024 учебный год -->
+    <h2>Данные за 2023/2024 учебный год</h2>
+    <table id="data-table-2023-2024">
+        <thead>
+            <tr>
+                <th>Класс</th>
+                <th>Всего</th>
+                <th>Отличники</th>
+                <th>Хорошисты</th>
+                <th>Троечники</th>
+                <th>Неуспевающие</th>
+                <th>Неаттестованные</th>
+                <th>В том числе</th>
+                <th>% качества знаний</th>
+                <th>Домашнее обучение</th>
+                <th>Освобождённые</th>
+                <th>Вновь прибывшие</th>
+            </tr>
+        </thead>
+        <tbody id="table-body-2023-2024">
+            <!-- Данные будут динамически добавляться сюда -->
+        </tbody>
+    </table>
 
-    <div class="reviews-section">
-        <h3>Отзывы</h3>
-        <form id="reviewForm">
-            <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
-            <button type="submit">Отправить отзыв</button>
-        </form>
-        <ul id="reviewList"></ul>
-    </div>
+    <script>
+        // Данные за 2022/2023 учебный год
+        const classesData2022_2023 = [{
+            class: '2а',
+            total: 19,
+            absences: 6,
+            active: 4,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 52.63
+        }, {
+            class: '2ә',
+            total: 22,
+            absences: 7,
+            active: 8,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            quality: 68.18
+        }, {
+            class: '2б',
+            total: 20,
+            absences: 4,
+            active: 9,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            quality: 65.00
+        }, {
+            class: '3а',
+            total: 27,
+            absences: 6,
+            active: 12,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 66.67
+        }, {
+            class: '3ә',
+            total: 24,
+            absences: 4,
+            active: 11,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 62.50
+        }, {
+            class: '3б',
+            total: 27,
+            absences: 3,
+            active: 15,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 66.67
+        }, {
+            class: '3 Сыныптар',
+            total: 78,
+            absences: 13,
+            active: 38,
+            three: 27,
+            failing: 0,
+            not_passed: 0,
+            quality: 65.38
+        }, {
+            class: '4а',
+            total: 24,
+            absences: 3,
+            active: 12,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 62.50
+        }, {
+            class: '4ә',
+            total: 25,
+            absences: 4,
+            active: 10,
+            three: 11,
+            failing: 0,
+            not_passed: 0,
+            quality: 56.00
+        }, {
+            class: '4б',
+            total: 24,
+            absences: 4,
+            active: 12,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            quality: 66.67
+        }, {
+            class: '4 Сыныптар',
+            total: 73,
+            absences: 11,
+            active: 34,
+            three: 28,
+            failing: 0,
+            not_passed: 0,
+            quality: 61.64
+        }, {
+            class: '1 – 4 Сыныптар',
+            total: 212,
+            absences: 41,
+            active: 93,
+            three: 78,
+            failing: 0,
+            not_passed: 0,
+            quality: 63.21
+        }, {
+            class: '5а',
+            total: 25,
+            absences: 0,
+            active: 10,
+            three: 15,
+            failing: 0,
+            not_passed: 0,
+            quality: 40.00
+        }, {
+            class: '5ә',
+            total: 23,
+            absences: 2,
+            active: 9,
+            three: 12,
+            failing: 0,
+            not_passed: 0,
+            quality: 47.83
+        }, {
+            class: '5б',
+            total: 25,
+            absences: 3,
+            active: 14,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 68.00
+        }, {
+            class: '5 Сыныптар',
+            total: 73,
+            absences: 5,
+            active: 33,
+            three: 35,
+            failing: 0,
+            not_passed: 0,
+            quality: 52.05
+        }, {
+            class: '6а',
+            total: 22,
+            absences: 2,
+            active: 11,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 59.09
+        }, {
+            class: '6ә',
+            total: 21,
+            absences: 3,
+            active: 9,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            quality: 57.14
+        }, {
+            class: '6б',
+            total: 19,
+            absences: 2,
+            active: 6,
+            three: 11,
+            failing: 0,
+            not_passed: 0,
+            quality: 62.11
+        }, {
+            class: '6 Сыныптар',
+            total: 62,
+            absences: 7,
+            active: 26,
+            three: 29,
+            failing: 0,
+            not_passed: 0,
+            quality: 59.68
+        }, {
+            class: '7а',
+            total: 20,
+            absences: 1,
+            active: 9,
+            three: 10,
+            failing: 0,
+            not_passed: 0,
+            quality: 55.00
+        }, {
+            class: '7ә',
+            total: 22,
+            absences: 2,
+            active: 10,
+            three: 10,
+            failing: 0,
+            not_passed: 0,
+            quality: 45.45
+        }, {
+            class: '7б',
+            total: 20,
+            absences: 3,
+            active: 9,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            quality: 55.00
+        }, {
+            class: '7 Сыныптар',
+            total: 62,
+            absences: 6,
+            active: 28,
+            three: 28,
+            failing: 0,
+            not_passed: 0,
+            quality: 51.61
+        }, {
+            class: '8а',
+            total: 22,
+            absences: 1,
+            active: 7,
+            three: 14,
+            failing: 0,
+            not_passed: 0,
+            quality: 31.82
+        }, {
+            class: '8ә',
+            total: 20,
+            absences: 0,
+            active: 8,
+            three: 12,
+            failing: 0,
+            not_passed: 0,
+            quality: 40.00
+        }, {
+            class: '8 Сыныптар',
+            total: 42,
+            absences: 1,
+            active: 15,
+            three: 26,
+            failing: 0,
+            not_passed: 0,
+            quality: 35.71
+        }, {
+            class: '9а',
+            total: 22,
+            absences: 1,
+            active: 7,
+            three: 14,
+            failing: 0,
+            not_passed: 0,
+            quality: 31.82
+        }, {
+            class: '9ә',
+            total: 22,
+            absences: 0,
+            active: 7,
+            three: 15,
+            failing: 0,
+            not_passed: 0,
+            quality: 33.33
+        }, {
+            class: '9 Сыныптар',
+            total: 44,
+            absences: 1,
+            active: 14,
+            three: 29,
+            failing: 0,
+            not_passed: 0,
+            quality: 32.95
+        }, {
+            class: '1 – 9 Сыныптар',
+            total: 304,
+            absences: 32,
+            active: 169,
+            three: 132,
+            failing: 0,
+            not_passed: 0,
+            quality: 50.00
+        }];
 
-    <script src="script.js"></script>
+        // Данные за 2023/2024 учебный год
+        const classesData2023_2024 = [{
+            class: '2а',
+            total: 27,
+            excellent: 4,
+            good: 15,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 70.37
+        }, {
+            class: '2ә',
+            total: 24,
+            excellent: 3,
+            good: 11,
+            three: 10,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 58.33
+        }, {
+            class: '2б',
+            total: 24,
+            excellent: 4,
+            good: 11,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 62.50
+        }, {
+            class: '3а',
+            total: 23,
+            excellent: 3,
+            good: 11,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 60.87
+        }, {
+            class: '3ә',
+            total: 23,
+            excellent: 5,
+            good: 8,
+            three: 10,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 56.52
+        }, {
+            class: '3б',
+            total: 19,
+            excellent: 4,
+            good: 8,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 63.16
+        }, {
+            class: '3 классы',
+            total: 65,
+            excellent: 12,
+            good: 27,
+            three: 26,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 60.00
+        }, {
+            class: '4а',
+            total: 17,
+            excellent: 3,
+            good: 7,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 58.82
+        }, {
+            class: '4ә',
+            total: 16,
+            excellent: 3,
+            good: 7,
+            three: 6,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 62.50
+        }, {
+            class: '4б',
+            total: 18,
+            excellent: 3,
+            good: 9,
+            three: 6,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 66.67
+        }, {
+            class: '4в',
+            total: 16,
+            excellent: 0,
+            good: 9,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 56.25
+        }, {
+            class: '4 классы',
+            total: 67,
+            excellent: 9,
+            good: 32,
+            three: 26,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 61.19
+        }, {
+            class: '1 – 4 классы',
+            total: 207,
+            excellent: 32,
+            good: 96,
+            three: 79,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 61.84
+        }, {
+            class: '5а',
+            total: 19,
+            excellent: 2,
+            good: 9,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 57.89
+        }, {
+            class: '5ә',
+            total: 21,
+            excellent: 4,
+            good: 8,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 57.14
+        }, {
+            class: '5б',
+            total: 15,
+            excellent: 2,
+            good: 5,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 46.67
+        }, {
+            class: '5 классы',
+            total: 55,
+            excellent: 8,
+            good: 22,
+            three: 25,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 54.55
+        }, {
+            class: '6а',
+            total: 23,
+            excellent: 0,
+            good: 12,
+            three: 11,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 52.17
+        }, {
+            class: '6ә',
+            total: 23,
+            excellent: 1,
+            good: 15,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 69.57
+        }, {
+            class: '6б',
+            total: 24,
+            excellent: 3,
+            good: 14,
+            three: 7,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 70.83
+        }, {
+            class: '6 классы',
+            total: 70,
+            excellent: 4,
+            good: 41,
+            three: 25,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 64.29
+        }, {
+            class: '7а',
+            total: 19,
+            excellent: 2,
+            good: 9,
+            three: 8,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 57.89
+        }, {
+            class: '7ә',
+            total: 17,
+            excellent: 1,
+            good: 7,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 47.06
+        }, {
+            class: '7б',
+            total: 23,
+            excellent: 4,
+            good: 9,
+            three: 10,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 56.52
+        }, {
+            class: '7 классы',
+            total: 59,
+            excellent: 7,
+            good: 25,
+            three: 27,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 54.24
+        }, {
+            class: '8а',
+            total: 24,
+            excellent: 3,
+            good: 10,
+            three: 11,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 54.17
+        }, {
+            class: '8ә',
+            total: 25,
+            excellent: 0,
+            good: 8,
+            three: 17,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 32.00
+        }, {
+            class: '8 классы',
+            total: 49,
+            excellent: 3,
+            good: 18,
+            three: 28,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 42.86
+        }, {
+            class: '9а',
+            total: 1,
+            excellent: 0,
+            good: 1,
+            three: 0,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 100.00
+        }, {
+            class: '5 – 9 классы',
+            total: 234,
+            excellent: 22,
+            good: 107,
+            three: 105,
+            failing: 0,
+            not_passed: 0,
+            home_study: 1,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 55.13
+        }, {
+            class: '10а',
+            total: 24,
+            excellent: 0,
+            good: 15,
+            three: 9,
+            failing: 0,
+            not_passed: 0,
+            home_study: 0,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 62.50
+        }, {
+            class: 'Итого',
+            total: 465,
+            excellent: 54,
+            good: 218,
+            three: 193,
+            failing: 0,
+            not_passed: 0,
+            home_study: 2,
+            exempted: 0,
+            newly_arrived: 0,
+            quality: 58.49
+        }];
+        const dataSummary = {
+            '2022_2023': classesData2022_2023,
+            '2023_2024': classesData2023_2024
+        };
+
+        const renderTable = (data) => {
+            let html = `
+        <table>
+            <tr>
+                <th>Класс</th>
+                <th>Всего</th>
+                <th>Отличники</th>
+                <th>Хорошисты</th>
+                <th>Троечники</th>
+                <th>Неуспевающие</th>
+                <th>Неаттестованные</th>
+                <th>В том числе</th>
+                <th>Домашнее обучение</th>
+                <th>Освобождённые</th>
+                <th>Вновь прибывшие</th>
+                <th>% качества знаний</th>
+            </tr>
+        `;
+            data.forEach(row => {
+                html += `
+            <tr>
+                <td>${row.class}</td>
+                <td>${row.total}</td>
+                <td>${row.excellent}</td>
+                <td>${row.good}</td>
+                <td>${row.three}</td>
+                <td>${row.failing}</td>
+                <td>${row.not_passed}</td>
+                <td>${row.home_study}</td>
+                <td>${row.exempted}</td>
+                <td>${row.newly_arrived}</td>
+                <td>${row.quality}</td>
+            </tr>
+            `;
+            });
+            html += `</table>`;
+            return html;
+        };
+
+        const init = () => {
+            const yearSelect = document.getElementById('yearSelect');
+            const tableContainer = document.getElementById('tableContainer');
+
+            yearSelect.addEventListener('change', (event) => {
+                const selectedYear = event.target.value;
+                const selectedData = dataSummary[selectedYear];
+                tableContainer.innerHTML = renderTable(selectedData);
+            });
+
+            // Initialize with the first year data
+            yearSelect.value = '2022_2023';
+            tableContainer.innerHTML = renderTable(dataSummary['2022_2023']);
+        };
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+
 </body>
+
 </html>
